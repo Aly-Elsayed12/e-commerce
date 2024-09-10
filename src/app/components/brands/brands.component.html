@@ -1,0 +1,23 @@
+<section>
+  <h2 class="dark:text-white mb-8 text-5xl w-fit mx-auto">
+    {{"navbar.Brands" | translate}}
+  </h2>
+  <div class="grid gap-5  sm:grid-cols-1 md:grid-cols-3    lg:grid-cols-5 xl:grid-cols-6">
+
+    @for(brand of brandList; track $index ){
+      <div class="product rounded-lg shadow-lg dark:bg-gray-600 " >
+          <div class="">
+            <img class="rounded-t-lg border-b-2 w-full" [src]="brand.image" [alt]="brand.name" />
+          </div>
+          <div class="p-5 text-center">
+              <span class="text-[var(--main-color)]   text-xl ">{{brand.name}}</span>
+
+          </div>
+        </div>
+
+    }
+
+  </div>
+
+
+</section>

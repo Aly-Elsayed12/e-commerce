@@ -1,0 +1,17 @@
+<section>
+  <h2 class="dark:text-white mb-8 text-5xl w-fit mx-auto">{{"navbar.Categoies" | translate}}</h2>
+  <div class="grid gap-5  sm:grid-cols-2 md:grid-cols-3 ">
+
+    @for(cat of catList; track $index ){
+      <figure class="product">
+      <img [src]="cat.image"  [alt]="cat.name" class="h-[300px] w-full object-cover">
+      <figcaption class="text-center mt-5 py-3">
+        <p class="text-2xl">{{cat.name}}</p>
+      </figcaption>
+      </figure>
+    }
+
+  </div>
+
+
+</section>

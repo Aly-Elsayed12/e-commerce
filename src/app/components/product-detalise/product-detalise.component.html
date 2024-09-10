@@ -1,0 +1,52 @@
+@if(productsDetalise){
+  <section class="min-h-[60vh]">
+    <div class="grid gap-5 grid-cols-4 opacity-100">
+      <div class="col-span-4 lg:col-span-1 top-[50%]">
+        <swiper-container navigation="ture"  style="--swiper-navigation-color:#000000" class="mySwiper"   thumbs-swiper=".mySwiper2" >
+          @for(imgSrc of productsDetalise.images ; track $index){
+            <swiper-slide>
+              <img [src]="imgSrc" class="w-full" alt="">
+            </swiper-slide>
+          }
+        </swiper-container>
+        <swiper-container  class="mySwiper2"   space-between="5">
+          @for(imgSrc of productsDetalise.images ; track $index){
+            <swiper-slide class="mySwiper2" >
+              <img [src]="imgSrc"  alt="">
+            </swiper-slide>
+          }
+        </swiper-container>
+      </div>
+      <div class="col-span-4 lg:col-span-3">
+        <div class="flex flex-col h-full justify-center">
+          <h2 class="text-[var(--main-color)] text-3xl mb-5">{{productsDetalise.title}}</h2>
+          <p class="text-[18px] text-gray-400 px-2">{{productsDetalise.description}}</p>
+          <h5 class="my-4 dark:text-white">{{productsDetalise.category.name}}</h5>
+          <div class="flex items-center justify-between mb-4 dark:text-white text-xl">
+            <p>{{productsDetalise.price}} EGP</p>
+            <p class="flex items-center gap-2">
+              <i class="fa-solid fa-star text-yellow-400 hover:text-yellow-400"></i>
+              <span class="text-gray-400">{{productsDetalise.ratingsAverage}}</span>
+            </p>
+          </div>
+          <button (click)="addToCart(productsDetalise._id)" [disabled]="isLoading" type="submit" class=" text-white btn-main btn-main-light dark:btn-main-dark block w-full text-base ">
+            {{"products.ADD_TO_CART" | translate}}
+            @if(isLoading){
+              <span class="fas fa-spin fa-spinner"></span>
+            }@else {
+              <i class="fa-solid fa-cart-plus hover:text-white"></i>
+            }
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+}
+
+
+
+
+
+

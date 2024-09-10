@@ -1,0 +1,110 @@
+{
+  "navbar":{
+    "Home" : "Home",
+    "Cart" : "Cart",
+    "Categoies" : "Categoies",
+    "Products" : "Products",
+    "Brands" : "Brands",
+    "WishList" : "Wish List",
+    "LogOut" : "Log Out",
+    "Lang" : "Lang",
+    "SEE_ALL_PRODUCTS": "To See All Products Click",
+    "HERE": "here"
+  },
+  "home" : {
+      "SHOP_POPULAR_CATEGORIES": "Shop Popular Categories",
+      "POPULAR_PRODUCTS": "Popular Products",
+      "SEE_ALL_PRODUCTS": "To See All Products, Click Here"
+  },
+  "footer": {
+    "GET_APP": "Get The FreshCart App",
+    "APP_DOWNLOAD_INSTRUCTION": "We Will Send You a Link, Open it on Your Phone to download the app",
+    "SHARE_APP_LINK": "Share App Link",
+    "PAYMENT_PARTNERS": "Payment partners",
+    "DELIVERIES_WITH_FRESHCART": "Get Deliveries with FreshCart",
+    "email":"email"
+  },
+  "cart": {
+    "SHOP_CART": "Shop Cart",
+    "TOTAL_CART_PRICE": "Total Cart Price",
+    "NUMBER_OF_CART_ITEMS": "Number Of Cart Items",
+    "IMAGE": "Image",
+    "PRODUCT": "Product",
+    "COUNT": "Count",
+    "PRICE": "Price",
+    "ACTION": "Action",
+    "QUANTITY": "Quantity",
+    "REMOVE": "Remove",
+    "ORDERS": "Orders",
+    "CLEAR_CART": "Clear Cart",
+    "GO_TO_PRODUCTS_PAGE": "Go To The Products Page",
+    "CLICK": "Click ",
+    "Here": "Here",
+    "TO_BUY": "To Buy",
+    "SHIPPING_ADDRESS": "Shipping Address",
+    "ORDER_NOW": "Order Now",
+    "DETAILS": "Details",
+    "PHONE": "Phone",
+    "CITY": "City",
+    "PAY_CASH": "Pay Cash",
+    "PAY_VISA": "Pay Visa"
+  },
+
+  "products":{
+    "All-Products" : "All Products",
+    "SEARCH_BY_PRODUCT_NAME": "Search by product name",
+    "SEARCH": "Search",
+    "ADD_TO_CART": "Add To Cart"
+  },
+  "app":{
+    "Loading": "Loading"
+  },
+  "auth": {
+    "LOGIN": "Login",
+    "REGISTER": "Register",
+    "REGISTER_NOW": "Register Now",
+    "NAME": "Name",
+    "EMAIL": "Email",
+    "PASSWORD": "Password",
+    "RE_PASSWORD": "Re-enter Password",
+    "PHONE": "Phone",
+    "ALREADY_HAVE_ACCOUNT": "Already have an account?",
+    "LOGIN_NOW": "Login now",
+    "DONT_HAVE_ACCOUNT": "Don't have an account?",
+    "FORGET_PASSWORD": "Forget Password",
+    "VERIFY_EMAIL": "Verify Email",
+    "VERIFY_CODE": "Verify Code",
+    "CODE": "Code",
+    "RESET_PASSWORD": "Reset Password"
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+

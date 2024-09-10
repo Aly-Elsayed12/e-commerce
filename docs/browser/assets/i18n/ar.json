@@ -1,0 +1,81 @@
+{
+  "navbar":{
+  "Home" : "الرئيسيه",
+  "Cart" : "سلة المشتريات",
+  "Categoies" : "الأقسام",
+  "Products" : "المنتجات",
+  "Brands" : "العلامات التجارية",
+  "WishList" : "المنتجات المفضلة",
+  "LogOut" : "تسجيل الخروج",
+  "Lang" : "اللغة"
+
+},
+"home":{
+    "SHOP_POPULAR_CATEGORIES": "تسوق الفئات الشعبية",
+    "POPULAR_PRODUCTS": "المنتجات الشعبية",
+    "SEE_ALL_PRODUCTS": "لمشاهدة جميع المنتجات اضغط",
+    "HERE": "هنا"
+},
+"footer": {
+  "GET_APP": "احصل على تطبيق FreshCart",
+  "APP_DOWNLOAD_INSTRUCTION": "سنرسل لك رابطًا، افتحه على هاتفك لتنزيل التطبيق",
+  "SHARE_APP_LINK": "مشاركة رابط التطبيق",
+  "PAYMENT_PARTNERS": "شركاء الدفع",
+  "DELIVERIES_WITH_FRESHCART": "احصل على توصيلات مع FreshCart"
+},
+"cart": {
+    "SHOP_CART": "سلة التسوق",
+    "TOTAL_CART_PRICE": "إجمالي سعر السلة",
+    "NUMBER_OF_CART_ITEMS": "عدد العناصر في السلة",
+    "IMAGE": "الصورة",
+    "PRODUCT": "المنتج",
+    "COUNT": "العدد",
+    "PRICE": "السعر",
+    "ACTION": "الإجراء",
+    "QUANTITY": "الكمية",
+    "REMOVE": "إزالة",
+    "ORDERS": "الطلبات",
+    "CLEAR_CART": "إفراغ السلة",
+    "GO_TO_PRODUCTS_PAGE": "انتقل إلى صفحة المنتجات",
+    "CLICK": "اضغطا",
+    "Here":"هنا",
+    "TO_BUY": "لشراء",
+    "SHIPPING_ADDRESS": "عنوان الشحن",
+    "ORDER_NOW": "اطلب الآن",
+    "DETAILS": "التفاصيل",
+    "PHONE": "الهاتف",
+    "CITY": "المدينة",
+    "PAY_CASH": "الدفع نقدًا",
+    "PAY_VISA": "الدفع ببطاقة فيزا"
+
+  },
+  "products":{
+    "All-Products" : "جميع المنتجات",
+    "SEARCH_BY_PRODUCT_NAME": "البحث باسم المنتج",
+    "SEARCH": "بحث",
+    "ADD_TO_CART": "أضف إلى السلة"
+  },
+  "app":{
+    "Loading": "جاري التحميل"
+  },
+  "auth": {
+    "LOGIN": "تسجيل الدخول",
+    "REGISTER": "تسجيل",
+    "REGISTER_NOW": "سجل الآن",
+    "NAME": "الاسم",
+    "EMAIL": "البريد الإلكتروني",
+    "PASSWORD": "كلمة المرور",
+    "RE_PASSWORD": "إعادة إدخال كلمة المرور",
+    "PHONE": "الهاتف",
+    "ALREADY_HAVE_ACCOUNT": "لديك حساب بالفعل؟",
+    "LOGIN_NOW": "تسجيل الدخول الآن",
+    "DONT_HAVE_ACCOUNT": "ليس لديك حساب؟",
+    "FORGET_PASSWORD": "نسيت كلمة المرور",
+    "VERIFY_EMAIL": "التحقق من البريد الإلكتروني",
+    "VERIFY_CODE": "التحقق من الرمز",
+    "CODE": "الرمز",
+    "RESET_PASSWORD": "إعادة تعيين كلمة المرور"
+  }
+
+
+}

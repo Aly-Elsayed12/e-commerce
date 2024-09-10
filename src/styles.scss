@@ -1,1 +1,117 @@
 /* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+@import 'ngx-toastr/toastr';
+
+
+:root {
+  --main-color: #0aad0a;
+  --main-color-dark: #0d830d;
+  --light-color: #f0f3f2;
+  --shadow: rgba(145, 158, 171, 0.2) 0px 2px 4px -1px,
+    rgba(145, 158, 171, 0.14) 0px 4px 5px 0px,
+    rgba(145, 158, 171, 0.12) 0px 1px 10px 0px;
+  --font-family: "Encode Sans Expanded", sans-serif;
+  --rating-color: #ffc908;
+  --shadow-dark:  3px 4px 10px rgb(42 71 46);
+}
+
+body {
+  font-family: var(--font-family) !important;
+}
+
+.nav-link {
+  transition: unset !important;
+}
+.active-link {
+  color: var(--main-color);
+  font-weight: 700;
+}
+
+.rating-color {
+  color: var(--rating-color);
+}
+.cursor-pointer {
+  cursor: pointer;
+}
+a{
+  text-decoration: none;
+}
+i,a{
+  transition: all 0.3s;
+}
+a:hover,
+i:hover{
+  color:var(--main-color);
+}
+
+.product {
+  border: solid 1px var(--main-color);
+  transition: all 0.5s;
+  overflow: hidden;
+}
+
+.product:hover {
+  box-shadow: 0 0 10px #11bd1168;
+  transform: scale(1.03);
+}
+.product:hover button{
+  transform: translateY(-10px);
+  margin: 0px 10px;
+  width: 90%;
+}
+
+.product button{
+  transition: all 0.5s;
+  transform: translateY(250%);
+}
+.font-sm {
+  font-size: 12px;
+}
+.text-main {
+  color: var(--main-color);
+}
+.bg-main {
+  background-color: var(--main-color) !important;
+}
+.bg-main-light {
+  background-color: var(--light-color) !important;
+}
+.btn-main{
+  padding: 7px 20px;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.5s;
+}
+.btn-main-light {
+  background-color: var(--main-color);
+}
+.btn-main-dark{
+  background-color: var(--main-color-dark);
+}
+.btn-main:disabled {
+  cursor: not-allowed;
+  background-color: #ccc;
+}
+.btn-main:disabled:hover {
+  background-color: #ccc;
+}
+.btn-main:hover {
+  background-color: #11bd11;
+}
+
+.peer:focus ~ .peer-focus\:-translate-y-6 {
+  --tw-translate-y: -2.5rem !important;
+}
+
+.peer:focus:not(:placeholder-shown) ~ .peer-focus\:-translate-y-6{
+  --tw-translate-y: -2.5rem !important;
+}
+// .-translate-y-6 {
+//   --tw-translate-y: -2.5rem !important;
+// }

@@ -1,0 +1,105 @@
+<section class="dark:bg-gray-800  flex flex-col items-center py-9">
+<h2 class="dark:text-white mb-8 text-5xl w-fit mx-auto">{{"cart.SHIPPING_ADDRESS" | translate}}</h2>
+  <form [formGroup]="orders"   class="dark:bg-gray-600  container mx-auto md:w-[60%] h-100 bg-gray-100 drop-shadow-[var(--shadow)] px-[60px] py-[20px] rounded-[10px]">
+    <h2 class="text-2xl ml-[-35px] mb-9 dark:text-white font-xl">{{"cart.ORDER_NOW" | translate}}:</h2>
+    <div class="relative z-0 w-full mb-7 group ">
+        <input formControlName="details" type="text" name="details" id="details" class="block py-3 px-3 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-400  focus:outline-none focus:ring-0 focus:border-[var(--main-color)]   peer " placeholder=" " required />
+        @if(orders.get("details")?.errors && (orders.get("details")?.touched || orders.get("details")?.dirty )){
+          <i class="fa-solid fa-x text-red-700 absolute end-[3px] top-[20px]"></i>
+        }
+        @if(!orders.get("details")?.errors && (orders.get("details")?.touched || orders.get("details")?.dirty)){
+          <i class="fa-solid fa-check text-green-700 absolute end-[3px] top-[20px]"></i>
+        }
+        <label for="details" class="mb-2  peer-focus:font-medium peer-focus:text-medium absolute text-medium text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-gary-500 peer-focus:dark:text-gray-400 dark:text-gray-200 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 ">{{"cart.DETAILS" | translate}}:</label>
+        @if(orders.get("details")?.errors && (orders.get("details")?.touched || orders.get("phone")?.dirty)){
+          <div class="flex p-4 my-2 text-sm text-red-800 rounded-lg bg-red-100 dark:bg-gray-800 dark:text-red-400" role="alert">
+            <svg class="flex-shrink-0 inline w-4 h-4 me-3 mt-[2px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
+            </svg>
+            <span class="sr-only">Danger</span>
+            <div>
+              <span class="font-medium">Ensure that these requirements are met:</span>
+                <ul class="mt-1.5 list-disc list-inside">
+                  @if(orders.get("details")?.getError("required")){
+                    <li>This input is required</li>
+                  }
+              </ul>
+            </div>
+          </div>
+        }
+    </div>
+    <div class="relative z-0 w-full mb-7 group ">
+        <input formControlName="phone" type="text" name="Phone" id="Phone" class="block py-3 px-3 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-400  focus:outline-none focus:ring-0 focus:border-[var(--main-color)]   peer " placeholder=" " required />
+        @if(orders.get("phone")?.errors && (orders.get("phone")?.touched || orders.get("phone")?.dirty )){
+          <i class="fa-solid fa-x text-red-700 absolute end-[3px] top-[20px]"></i>
+        }
+        @if(!orders.get("phone")?.errors && (orders.get("phone")?.touched || orders.get("phone")?.dirty)){
+          <i class="fa-solid fa-check text-green-700 absolute end-[3px] top-[20px]"></i>
+        }
+        <label for="Phone" class="mb-2  peer-focus:font-medium peer-focus:text-medium absolute text-medium text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-gary-500 peer-focus:dark:text-gray-400 dark:text-gray-200 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 ">{{"cart.PHONE" | translate}}:</label>
+        @if(orders.get("phone")?.errors && (orders.get("phone")?.touched || orders.get("phone")?.dirty)){
+          <div class="flex p-4 my-2 text-sm text-red-800 rounded-lg bg-red-100 dark:bg-gray-800 dark:text-red-400" role="alert">
+            <svg class="flex-shrink-0 inline w-4 h-4 me-3 mt-[2px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
+            </svg>
+            <span class="sr-only">Danger</span>
+            <div>
+              <span class="font-medium">Ensure that these requirements are met:</span>
+                <ul class="mt-1.5 list-disc list-inside">
+                  @if(orders.get("phone")?.getError("required")){
+                    <li>This input is required</li>
+                  }
+                  @if(orders.get("phone")?.getError("pattern")){
+                    <li>accept only egypt phone numbers</li>
+                  }
+              </ul>
+            </div>
+          </div>
+        }
+    </div>
+    <div class="relative z-0 w-full mb-7 group ">
+        <input formControlName="city" type="text" name="city" id="city" class="block py-3 px-3 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-400  focus:outline-none focus:ring-0 focus:border-[var(--main-color)]   peer " placeholder=" " required />
+        @if(orders.get("city")?.errors && (orders.get("city")?.touched || orders.get("city")?.dirty )){
+          <i class="fa-solid fa-x text-red-700 absolute end-[3px] top-[20px]"></i>
+        }
+        @if(!orders.get("city")?.errors && (orders.get("city")?.touched || orders.get("city")?.dirty)){
+          <i class="fa-solid fa-check text-green-700 absolute end-[3px] top-[20px]"></i>
+        }
+        <label for="city" class="mb-2  peer-focus:font-medium peer-focus:text-medium absolute text-medium text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-gary-500 peer-focus:dark:text-gray-400 dark:text-gray-200 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 ">{{"cart.CITY" | translate}}</label>
+        @if(orders.get("city")?.errors && (orders.get("city")?.touched || orders.get("city")?.dirty)){
+          <div class="flex p-4 my-2 text-sm text-red-800 rounded-lg bg-red-100 dark:bg-gray-800 dark:text-red-400" role="alert">
+            <svg class="flex-shrink-0 inline w-4 h-4 me-3 mt-[2px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
+            </svg>
+            <span class="sr-only">Danger</span>
+            <div>
+              <span class="font-medium">Ensure that these requirements are met:</span>
+                <ul class="mt-1.5 list-disc list-inside">
+                  @if(orders.get("city")?.getError("required")){
+                    <li>This input is required</li>
+                  }
+              </ul>
+            </div>
+          </div>
+        }
+    </div>
+
+<div class="flex items-center justify-between">
+  <button (click)="orderSubmitWithVisa()" [disabled]="orders.invalid"  type="submit" class="text-white btn-main btn-main-light dark:btn-main-dark block  ">
+
+    {{"cart.PAY_VISA" | translate}}
+      @if(isLoading && btnVisa && !btnCash){
+        <span class="fas fa-spin fa-spinner"></span>
+      }
+  </button>
+  <button (click)="orderSubmitWithCash()" [disabled]="orders.invalid"  type="submit" class="text-white btn-main btn-main-light dark:btn-main-dark block  ">
+    {{"cart.PAY_CASH" | translate}}
+      @if(isLoading && btnCash && !btnVisa){
+        <span class="fas fa-spin fa-spinner"></span>
+      }
+  </button>
+</div>
+
+  </form>
+
+</section>
