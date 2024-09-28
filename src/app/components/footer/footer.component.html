@@ -1,36 +1,64 @@
-<footer class="bg-gray-200  py-12 dark:bg-[black] dark:bg-[black] dark:text-white px-3 dark:drop-shadow-[var(--shadow-dark)]">
+<footer
+  class="bg-gray-200 py-12 dark:bg-[black] dark:bg-[black] dark:text-white px-3 dark:drop-shadow-[var(--shadow-dark)]"
+>
   <div class="container mx-auto dark:bg-[black]">
     <h2 class="m-0 text-3xl mb-3">
-      {{"footer.GET_APP" | translate}}
+      {{ "footer.GET_APP" | translate }}
     </h2>
     <p class="text-gray-500 dark:text-gray-300">
-      {{"footer.APP_DOWNLOAD_INSTRUCTION" | translate}}
-    <div class="flex items-center gap-3  my-5 px-4">
-      <input type="text" class="w-3/4 py-3 px-2 rounded-md dark:text-[black]" placeholder="{{'footer.email' | translate}}" />
+      {{ "footer.APP_DOWNLOAD_INSTRUCTION" | translate }}
+    </p>
+
+    <div class="flex items-center gap-3 my-5 px-4">
+      <input
+        type="text"
+        class="w-3/4 py-3 px-2 rounded-md dark:text-[black]"
+        placeholder="{{ 'auth.EMAIL' | translate }}"
+      />
       <button class="btn-main btn-main-light dark:btn-main-dark">
-        {{"footer.SHARE_APP_LINK" | translate}}
+        {{ "footer.SHARE_APP_LINK" | translate }}
       </button>
     </div>
 
-    <div class="pay-details flex justify-between md:items-center mt-3 px-4 flex-col items-start md:flex-row flex-wrap">
+    <div
+      class="pay-details flex justify-between md:items-center mt-3 px-4 flex-col items-start md:flex-row flex-wrap"
+    >
       <div class="flex items-center gap-2 mb-4">
         <h3 class="md:text-xl m-0">
-
-          {{"footer.PAYMENT_PARTNERS" | translate}}
+          {{ "footer.PAYMENT_PARTNERS" | translate }}
         </h3>
-        <img src="./assets/images/amazon-pay.png" width= "65px" alt="amazon-pay" />
-        <img src="./assets/images/American-Express-Color.png" width="65px" alt="American-Express"/>
-        <img src="./assets/images/paypal.png" width="65px" alt="paypal" />
-        <img src="./assets/images/mastercard.webp" width="65px" alt="mastercard" />
+        <img
+          src="./assets/images/amazon-pay.png"
+          class="w-[60px]"
+          alt="amazon-pay"
+        />
+        <img
+          src="./assets/images/American-Express-Color.png"
+          class="w-[60px]"
+          alt="American-Express"
+        />
+        <img src="./assets/images/paypal.png" class="w-[60px]" alt="paypal" />
+        <img
+          src="./assets/images/mastercard.webp"
+          class="w-[60px]"
+          alt="mastercard"
+        />
       </div>
       <div class="flex items-center gap-2">
         <h3 class="md:text-xl m-0">
-          {{"footer.DELIVERIES_WITH_FRESHCART" | translate}}
+          {{ "footer.DELIVERIES_WITH_FRESHCART" | translate }}
         </h3>
-        <img src="./assets/images/get-google-play.png" width="75px" alt="" />
-        <img src="./assets/images/get-apple-store.png" width="75px" alt="" />
+        <img
+          src="./assets/images/get-google-play.png"
+          class="w-[60px]"
+          alt=""
+        />
+        <img
+          src="./assets/images/get-apple-store.png"
+          class="w-[60px]"
+          alt=""
+        />
       </div>
     </div>
   </div>
 </footer>
-

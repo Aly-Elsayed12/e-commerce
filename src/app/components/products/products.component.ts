@@ -28,6 +28,7 @@ export class ProductsComponent implements OnInit , OnDestroy {
 
   getAllProductsSub!:Subscription
   addProductsToCartSub!:Subscription
+  addProdutsToWishSub!:Subscription
 
   productsList:Iproduct[] = []
 
@@ -69,9 +70,8 @@ addToCart(id:string):void{
   })
 }
 
-
 addProdutsToWish(id:string):void{
-  this._WishService.addProductsToWish(id).subscribe({
+  this.addProdutsToWishSub =  this._WishService.addProductsToWish(id).subscribe({
     next:(res)=>{
       console.log(res);
 
@@ -84,5 +84,6 @@ addProdutsToWish(id:string):void{
 ngOnDestroy(): void {
   this.getAllProductsSub?.unsubscribe()
   this.addProductsToCartSub?.unsubscribe()
+  this.addProdutsToWishSub?.unsubscribe()
 }
 }

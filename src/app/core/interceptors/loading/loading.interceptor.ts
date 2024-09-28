@@ -15,7 +15,7 @@ export const loadingInterceptor: HttpInterceptorFn = (req, next) => {
     req.url == `${environment.baseUrl}/api/v1/cart` ||
     req.url.includes("wish-list") ||
     req.url == `${environment.baseUrl}/api/v1/products`||
-    req.url.includes("allorders") ||
+    req.url == `${environment.baseUrl}/allorders` ||
     req.url.includes("orders")){
     _NgxSpinnerService.show()
   }

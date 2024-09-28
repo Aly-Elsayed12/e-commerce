@@ -27,6 +27,7 @@ export const routes: Routes = [
         {path:'register' , component:RegisterComponent, title:"Register"},
         {path:'forget' , loadComponent: () => import("./components/forget-password/forget-password.component").then(c => c.ForgetPasswordComponent), title:"Forget Password"},
 
+
   ]},
 
   {path:'', component:BlankLayoutComponent, canActivate:[authGuard],
@@ -40,10 +41,10 @@ export const routes: Routes = [
       {path:'products', component:ProductsComponent, title:'Products'},
       {path:'ProductDetalise/:id', component:ProductDetaliseComponent, title:'Product Detalise'},
       {path:'allorders', component:AllOrdersComponent, title:'All Orders'},
-      {path:"orders/:id" , component:OrderComponent, title:"Orders"}
+      {path:"orders/:id" , component:OrderComponent, title:"Orders"},
+      {path:"**", component:NotFoundComponent, title:"not found"}
 
     ]
   },
-
 
 ];

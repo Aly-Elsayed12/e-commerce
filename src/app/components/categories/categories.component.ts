@@ -25,7 +25,6 @@ export class CategoriesComponent implements OnInit , OnDestroy {
   ngOnInit(): void {
       this.getAllCatSub = this._CategoriesService.getAllCategories().subscribe({
         next:(res)=>{
-          console.log(res);
           this.catList = res.data
         },
         error:(err)=>{

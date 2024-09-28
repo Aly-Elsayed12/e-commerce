@@ -27,7 +27,6 @@ export class BrandsComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
       this.getAllbrandSub = this._BrandsService.getAllBrand().subscribe({
         next:(res)=>{
-          console.log(res);
           this.brandList = res.data
         },
         error:(err)=>{

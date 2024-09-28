@@ -1,18 +1,20 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService } from '../../core/services/auth/auth.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Router, RouterLink } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
+import { Subscription } from 'rxjs';
 
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ReactiveFormsModule , RouterLink ],
+  imports: [ReactiveFormsModule , RouterLink , TranslateModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
-export class LoginComponent {
+export class LoginComponent implements OnDestroy {
   errMes:string =""
   isLoading:boolean =false
   mesSuccess:boolean =false
@@ -20,6 +22,9 @@ export class LoginComponent {
   private readonly _AuthService = inject(AuthService)
   private readonly _FormBuilder = inject(FormBuilder)
   private readonly _Router = inject(Router)
+
+
+  loginSubmiSub!:Subscription
 
   login: FormGroup = this._FormBuilder.group({
     email:[null , [Validators.required, Validators.email]],
@@ -56,6 +61,11 @@ loginSubmit(){
   }else{
     this.login.markAllAsTouched()
   }
+}
+ngOnDestroy(): void {
+    if(this.loginSubmiSub){
+      this.loginSubmiSub.unsubscribe()
+    }
 }
 
 }

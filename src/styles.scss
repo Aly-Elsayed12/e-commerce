@@ -44,8 +44,7 @@ a{
 i,a{
   transition: all 0.3s;
 }
-a:hover,
-i:hover{
+a:hover:not(#cartLink){
   color:var(--main-color);
 }
 
@@ -112,6 +111,15 @@ i:hover{
 .peer:focus:not(:placeholder-shown) ~ .peer-focus\:-translate-y-6{
   --tw-translate-y: -2.5rem !important;
 }
-// .-translate-y-6 {
-//   --tw-translate-y: -2.5rem !important;
+
+
+.owl-nav.ng-star-inserted {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+}
+// html[dir="ltr"] .owl-nav.ng-star-inserted {
+//   display: flex;
+//   flex-direction: row-reverse;
+//   justify-content: center;
 // }

@@ -1,183 +1,349 @@
-<section class="dark:bg-gray-800  flex items-center py-9 px-[20px]">
-  <form [formGroup]="register" (ngSubmit)="reigisterSubmit()"  class="dark:bg-gray-600  container  md:mx-auto md:w-[60%] h-100 bg-gray-100 drop-shadow-[var(--shadow)] px-[60px] py-[20px] rounded-[10px]">
-    <h2 class="text-2xl ml-[-35px] mb-9 dark:text-white font-xl">Register Now :</h2>
-    <div class="relative z-0 w-full mb-7 group ">
-        <input formControlName="name" type="text" name="name" id="name" class=" block py-3 px-3 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-400  focus:outline-none focus:ring-0 focus:border-[var(--main-color)]   peer " placeholder=" " required />
-        @if(register.get("name")?.errors && (register.get("name")?.touched || register.get("name")?.dirty )){
-          <i class="fa-solid fa-x text-red-700 absolute end-[3px] top-[20px]"></i>
-        }
-        @if(!register.get("name")?.errors && (register.get("name")?.touched || register.get("name")?.dirty)){
-          <i class="fa-solid fa-check text-green-700 absolute end-[3px] top-[20px]"></i>
-        }
-        <label for="name" class="peer-focus:font-medium peer-focus:text-medium absolute text-medium text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-gary-500 peer-focus:dark:text-gray-400 dark:text-gray-200 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 ">name:</label>
-      @if(register.get("name")?.errors && (register.get("name")?.touched || register.get("name")?.dirty)){
-        <div class="flex p-4 my-2 text-sm text-red-800 rounded-lg bg-red-100 dark:bg-gray-800 dark:text-red-400" role="alert">
-          <svg class="flex-shrink-0 inline w-4 h-4 me-3 mt-[2px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-            <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
-          </svg>
-          <span class="sr-only">Danger</span>
-          <div>
-            <span class="font-medium">Ensure that these requirements are met:</span>
-              <ul class="mt-1.5 list-disc list-inside">
-                @if(register.get("name")?.getError("required")){
-                  <li>This input is required</li>
-                }
-                @if(register.get("name")?.getError("minlength") || register.get("name")?.getError("maxlength")){
-                  <li>At least 3 characters (and up to 20 characters)</li>
-                }
-            </ul>
-          </div>
+<section class="dark:bg-gray-800 flex items-center py-9 px-[20px]">
+  <form
+    [formGroup]="register"
+    (ngSubmit)="reigisterSubmit()"
+    class="dark:bg-gray-600 container md:mx-auto md:w-[60%] h-100 bg-gray-100 drop-shadow-[var(--shadow)] px-[60px] py-[20px] rounded-[10px]"
+  >
+    <h2 class="text-2xl ml-[-35px] mb-9 dark:text-white font-xl">
+      {{ "auth.REGISTER" | translate }} :
+    </h2>
+    <div class="relative z-0 w-full mb-7 group">
+      <input
+        formControlName="name"
+        type="text"
+        name="name"
+        id="name"
+        class="block py-3 px-3 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-400 focus:outline-none focus:ring-0 focus:border-[var(--main-color)] peer"
+        placeholder=" "
+        required
+      />
+      @if(register.get("name")?.errors && (register.get("name")?.touched ||
+      register.get("name")?.dirty )){
+      <i class="fa-solid fa-x text-red-700 absolute end-[3px] top-[20px]"></i>
+      } @if(!register.get("name")?.errors && (register.get("name")?.touched ||
+      register.get("name")?.dirty)){
+      <i
+        class="fa-solid fa-check text-green-700 absolute end-[3px] top-[20px]"
+      ></i>
+      }
+      <label
+        for="name"
+        class="peer-focus:font-medium peer-focus:text-medium absolute text-medium text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-gary-500 peer-focus:dark:text-gray-400 dark:text-gray-200 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+        >{{ "auth.NAME" | translate }}:</label
+      >
+      @if(register.get("name")?.errors && (register.get("name")?.touched ||
+      register.get("name")?.dirty)){
+      <div
+        class="flex p-4 my-2 text-sm text-red-800 rounded-lg bg-red-100 dark:bg-gray-800 dark:text-red-400"
+        role="alert"
+      >
+        <svg
+          class="flex-shrink-0 inline w-4 h-4 me-3 mt-[2px]"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+        >
+          <path
+            d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"
+          />
+        </svg>
+        <span class="sr-only">Danger</span>
+        <div>
+          <span class="font-medium"
+            >{{ "ALERT.ENSURE_REQUIREMENTS" | translate }}:</span
+          >
+          <ul class="mt-1.5 list-disc list-inside">
+            @if(register.get("name")?.getError("required")){
+            <li>{{ "ALERT.REQUIRED" | translate }}</li>
+            } @if(register.get("name")?.getError("minlength") ||
+            register.get("name")?.getError("maxlength")){
+            <li>{{ "ALERT.MIN_LENGTH_3_TO_20" | translate }}</li>
+            }
+          </ul>
         </div>
-      }
-    </div>
-    <div class="relative z-0 w-full mb-7 group ">
-        <input formControlName="email"  type="email" name="Email" id="Email" class="block py-3 px-3 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-400  focus:outline-none focus:ring-0 focus:border-[var(--main-color)]   peer " placeholder=" " required />
-        @if(register.get("email")?.errors && (register.get("email")?.touched || register.get("email")?.dirty )){
-          <i class="fa-solid fa-x text-red-700 absolute end-[3px] top-[20px]"></i>
-        }
-        @if(!register.get("email")?.errors && (register.get("email")?.touched || register.get("email")?.dirty)){
-          <i class="fa-solid fa-check text-green-700 absolute end-[3px] top-[20px]"></i>
-        }
-        <label for="Email" class="peer-focus:font-medium peer-focus:text-medium absolute text-medium text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-gary-500 peer-focus:dark:text-gray-400 dark:text-gray-200 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 ">Email :</label>
-        @if(register.get("email")?.errors && (register.get("email")?.touched || register.get("email")?.dirty)){
-          <div class="flex p-4 my-2 text-sm text-red-800 rounded-lg bg-red-100 dark:bg-gray-800 dark:text-red-400" role="alert">
-            <svg class="flex-shrink-0 inline w-4 h-4 me-3 mt-[2px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-              <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
-            </svg>
-            <span class="sr-only">Danger</span>
-            <div>
-              <span class="font-medium">Ensure that these requirements are met:</span>
-                <ul class="mt-1.5 list-disc list-inside">
-                  @if(register.get("email")?.getError("required")){
-                    <li>This input is required</li>
-                  }
-                  @if(register.get("email")?.getError("email")){
-                    <li>Enter Valid Email</li>
-                  }
-              </ul>
-            </div>
-          </div>
-        }
-        @if(errMes && !mesSuccess) {
-          <div class="flex items-center p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
-            <svg class="flex-shrink-0 inline w-4 h-4 me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-              <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
-            </svg>
-            <span class="sr-only">Info</span>
-            <div>
-              <span class="font-medium">{{errMes}}</span>
-            </div>
-          </div>
-        }
-    </div>
-    <div class="relative z-0 w-full mb-7 group ">
-        <input formControlName="password" type="password" name="password" id="password" class="block py-3 px-3 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-400  focus:outline-none focus:ring-0 focus:border-[var(--main-color)]   peer " placeholder=" " required />
-        @if(register.get("password")?.errors && (register.get("password")?.touched || register.get("password")?.dirty )){
-          <i class="fa-solid fa-x text-red-700 absolute end-[3px] top-[20px]"></i>
-        }
-        @if(!register.get("password")?.errors && (register.get("password")?.touched || register.get("password")?.dirty)){
-          <i class="fa-solid fa-check text-green-700 absolute end-[3px] top-[20px]"></i>
-        }
-        <label for="password" class="peer-focus:font-medium peer-focus:text-medium absolute text-medium text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-gary-500 peer-focus:dark:text-gray-400 dark:text-gray-200 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 ">Password:</label>
-        @if(register.get("password")?.errors && (register.get("password")?.touched || register.get("password")?.dirty)){
-          <div class="flex p-4 my-2 text-sm text-red-800 rounded-lg bg-red-100 dark:bg-gray-800 dark:text-red-400" role="alert">
-            <svg class="flex-shrink-0 inline w-4 h-4 me-3 mt-[2px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-              <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
-            </svg>
-            <span class="sr-only">Danger</span>
-            <div>
-              <span class="font-medium">Ensure that these requirements are met:</span>
-                <ul class="mt-1.5 list-disc list-inside">
-                  @if(register.get("password")?.getError("required")){
-                    <li>This input is required</li>
-                  }
-                  @if(register.get("password")?.getError("pattern")){
-                    <li>At least 6 characters</li>
-                  }
-              </ul>
-            </div>
-          </div>
-        }
-    </div>
-    <div class="relative z-0 w-full mb-7 group ">
-        <input formControlName="rePassword" type="password" name="re-password" id="re-password" class="block py-3 px-3 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-400  focus:outline-none focus:ring-0 focus:border-[var(--main-color)]   peer " placeholder=" " required />
-        @if(register.get("rePassword")?.errors && (register.get("rePassword")?.touched || register.get("rePassword")?.dirty )){
-          <i class="fa-solid fa-x text-red-700 absolute end-[3px] top-[20px]"></i>
-        }
-        @if(!register.get("rePassword")?.errors && (register.get("rePassword")?.touched || register.get("rePassword")?.dirty)){
-          <i class="fa-solid fa-check text-green-700 absolute end-[3px] top-[20px]"></i>
-        }
-        <label for="re-password" class="peer-focus:font-medium peer-focus:text-medium absolute text-medium text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-gary-500 peer-focus:dark:text-gray-400 dark:text-gray-200 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 ">re-password :</label>
-        @if(register.getError("misMatch") && (register.get("rePassword")?.touched || register.get("rePassword")?.dirty)){
-          <div class="flex p-4 my-2 text-sm text-red-800 rounded-lg bg-red-100 dark:bg-gray-800 dark:text-red-400" role="alert">
-            <svg class="flex-shrink-0 inline w-4 h-4 me-3 mt-[2px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-              <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
-            </svg>
-            <span class="sr-only">Danger</span>
-            <div>
-              <span class="font-medium">Ensure that these requirements are met:</span>
-                <ul class="mt-1.5 list-disc list-inside">
-                  @if(register.get("rePassword")?.getError("required")){
-                    <li>This input is required</li>
-                  }
-                  @if(register.getError("misMatch")){
-                    <li>Password confirmation is incorrect</li>
-                  }
-              </ul>
-            </div>
-          </div>
-        }
-    </div>
-    <div class="relative z-0 w-full mb-7 group ">
-        <input formControlName="phone" type="text" name="Phone" id="Phone" class="block py-3 px-3 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-400  focus:outline-none focus:ring-0 focus:border-[var(--main-color)]   peer " placeholder=" " required />
-        @if(register.get("phone")?.errors && (register.get("phone")?.touched || register.get("phone")?.dirty )){
-          <i class="fa-solid fa-x text-red-700 absolute end-[3px] top-[20px]"></i>
-        }
-        @if(!register.get("phone")?.errors && (register.get("phone")?.touched || register.get("phone")?.dirty)){
-          <i class="fa-solid fa-check text-green-700 absolute end-[3px] top-[20px]"></i>
-        }
-        <label for="Phone" class="mb-2  peer-focus:font-medium peer-focus:text-medium absolute text-medium text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-gary-500 peer-focus:dark:text-gray-400 dark:text-gray-200 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 ">phone :</label>
-        @if(register.get("phone")?.errors && (register.get("phone")?.touched || register.get("phone")?.dirty)){
-          <div class="flex p-4 my-2 text-sm text-red-800 rounded-lg bg-red-100 dark:bg-gray-800 dark:text-red-400" role="alert">
-            <svg class="flex-shrink-0 inline w-4 h-4 me-3 mt-[2px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-              <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
-            </svg>
-            <span class="sr-only">Danger</span>
-            <div>
-              <span class="font-medium">Ensure that these requirements are met:</span>
-                <ul class="mt-1.5 list-disc list-inside">
-                  @if(register.get("phone")?.getError("required")){
-                    <li>This input is required</li>
-                  }
-                  @if(register.get("phone")?.getError("pattern")){
-                    <li>accept only egypt phone numbers</li>
-                  }
-              </ul>
-            </div>
-          </div>
-        }
-    </div>
-
-<div class="flex flex-col md:flex-row md:items-center justify-between">
-  <p class="dark:text-white">Already have an account? <a routerLink="/login" class="font-bold dark:text-white">Login now</a></p>
-  <button [disabled]="isLoading" (click)="reigisterSubmit()" type="submit" class="text-white btn-main btn-main-light dark:btn-main-dark block mt-2 md:mt-0 md:ml-auto ">
-
-    Register Now
-      @if(isLoading){
-        <span class="fas fa-spin fa-spinner"></span>
-      }
-  </button>
-</div>
-    @if(this.mesSuccess){
-      <div class="p-4 my-2 text-sm text-green-800 rounded-lg bg-green-200 dark:bg-gray-800 dark:text-green-400" role="alert">
-        <span class="font-medium">Success alert!</span> Your registration has been completed and you will be redirected to the login page within a few seconds.
       </div>
+      }
+    </div>
+    <div class="relative z-0 w-full mb-7 group">
+      <input
+        formControlName="email"
+        type="email"
+        name="Email"
+        id="Email"
+        class="block py-3 px-3 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-400 focus:outline-none focus:ring-0 focus:border-[var(--main-color)] peer"
+        placeholder=" "
+        required
+      />
+      @if(register.get("email")?.errors && (register.get("email")?.touched ||
+      register.get("email")?.dirty )){
+      <i class="fa-solid fa-x text-red-700 absolute end-[3px] top-[20px]"></i>
+      } @if(!register.get("email")?.errors && (register.get("email")?.touched ||
+      register.get("email")?.dirty)){
+      <i
+        class="fa-solid fa-check text-green-700 absolute end-[3px] top-[20px]"
+      ></i>
+      }
+      <label
+        for="Email"
+        class="peer-focus:font-medium peer-focus:text-medium absolute text-medium text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-gary-500 peer-focus:dark:text-gray-400 dark:text-gray-200 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+        >{{ "auth.EMAIL" | translate }} :</label
+      >
+      @if(register.get("email")?.errors && (register.get("email")?.touched ||
+      register.get("email")?.dirty)){
+      <div
+        class="flex p-4 my-2 text-sm text-red-800 rounded-lg bg-red-100 dark:bg-gray-800 dark:text-red-400"
+        role="alert"
+      >
+        <svg
+          class="flex-shrink-0 inline w-4 h-4 me-3 mt-[2px]"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+        >
+          <path
+            d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"
+          />
+        </svg>
+        <span class="sr-only">Danger</span>
+        <div>
+          <span class="font-medium"
+            >{{ "ALERT.ENSURE_REQUIREMENTS" | translate }}:</span
+          >
+          <ul class="mt-1.5 list-disc list-inside">
+            @if(register.get("email")?.getError("required")){
+            <li>{{ "ALERT.REQUIRED" | translate }}</li>
+            } @if(register.get("email")?.getError("email")){
+            <li>{{ "ALERT.VALID_EMAIL" | translate }}</li>
+            }
+          </ul>
+        </div>
+      </div>
+      } @if(errMes && !mesSuccess) {
+      <div
+        class="flex items-center p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+        role="alert"
+      >
+        <svg
+          class="flex-shrink-0 inline w-4 h-4 me-3"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+        >
+          <path
+            d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"
+          />
+        </svg>
+        <span class="sr-only">Info</span>
+        <div>
+          <span class="font-medium">{{ errMes }}</span>
+        </div>
+      </div>
+      }
+    </div>
+    <div class="relative z-0 w-full mb-7 group">
+      <input
+        formControlName="password"
+        type="password"
+        name="password"
+        id="password"
+        class="block py-3 px-3 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-400 focus:outline-none focus:ring-0 focus:border-[var(--main-color)] peer"
+        placeholder=" "
+        required
+      />
+      @if(register.get("password")?.errors && (register.get("password")?.touched
+      || register.get("password")?.dirty )){
+      <i class="fa-solid fa-x text-red-700 absolute end-[3px] top-[20px]"></i>
+      } @if(!register.get("password")?.errors &&
+      (register.get("password")?.touched || register.get("password")?.dirty)){
+      <i
+        class="fa-solid fa-check text-green-700 absolute end-[3px] top-[20px]"
+      ></i>
+      }
+      <label
+        for="password"
+        class="peer-focus:font-medium peer-focus:text-medium absolute text-medium text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-gary-500 peer-focus:dark:text-gray-400 dark:text-gray-200 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+        >{{ "auth.PASSWORD" | translate }} :</label
+      >
+      @if(register.get("password")?.errors && (register.get("password")?.touched
+      || register.get("password")?.dirty)){
+      <div
+        class="flex p-4 my-2 text-sm text-red-800 rounded-lg bg-red-100 dark:bg-gray-800 dark:text-red-400"
+        role="alert"
+      >
+        <svg
+          class="flex-shrink-0 inline w-4 h-4 me-3 mt-[2px]"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+        >
+          <path
+            d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"
+          />
+        </svg>
+        <span class="sr-only">Danger</span>
+        <div>
+          <span class="font-medium"
+            >{{ "ALERT.ENSURE_REQUIREMENTS" | translate }}:</span
+          >
+          <ul class="mt-1.5 list-disc list-inside">
+            @if(register.get("password")?.getError("required")){
+            <li>{{ "ALERT.REQUIRED" | translate }}</li>
+            } @if(register.get("password")?.getError("pattern")){
+            <li>{{ "ALERT.MIN_LENGTH_6" | translate }}</li>
+            }
+          </ul>
+        </div>
+      </div>
+      }
+    </div>
+    <div class="relative z-0 w-full mb-7 group">
+      <input
+        formControlName="rePassword"
+        type="password"
+        name="re-password"
+        id="re-password"
+        class="block py-3 px-3 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-400 focus:outline-none focus:ring-0 focus:border-[var(--main-color)] peer"
+        placeholder=" "
+        required
+      />
+      @if(register.get("rePassword")?.errors &&
+      (register.get("rePassword")?.touched || register.get("rePassword")?.dirty
+      )){
+      <i class="fa-solid fa-x text-red-700 absolute end-[3px] top-[20px]"></i>
+      } @if(!register.get("rePassword")?.errors &&
+      (register.get("rePassword")?.touched ||
+      register.get("rePassword")?.dirty)){
+      <i
+        class="fa-solid fa-check text-green-700 absolute end-[3px] top-[20px]"
+      ></i>
+      }
+      <label
+        for="re-password"
+        class="peer-focus:font-medium peer-focus:text-medium absolute text-medium text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-gary-500 peer-focus:dark:text-gray-400 dark:text-gray-200 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+        >{{ "auth.RE_PASSWORD" | translate }} :</label
+      >
+      @if(register.getError("misMatch") && (register.get("rePassword")?.touched
+      || register.get("rePassword")?.dirty)){
+      <div
+        class="flex p-4 my-2 text-sm text-red-800 rounded-lg bg-red-100 dark:bg-gray-800 dark:text-red-400"
+        role="alert"
+      >
+        <svg
+          class="flex-shrink-0 inline w-4 h-4 me-3 mt-[2px]"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+        >
+          <path
+            d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"
+          />
+        </svg>
+        <span class="sr-only">Danger</span>
+        <div>
+          <span class="font-medium"
+            >{{ "ALERT.ENSURE_REQUIREMENTS" | translate }}:</span
+          >
+          <ul class="mt-1.5 list-disc list-inside">
+            @if(register.get("rePassword")?.getError("required")){
+            <li>{{ "ALERT.REQUIRED" | translate }}</li>
+            } @if(register.getError("misMatch")){
+            <li>{{ "ALERT.PASSWORD_CONFIRMATION_INCORRECT" | translate }}</li>
+            }
+          </ul>
+        </div>
+      </div>
+      }
+    </div>
+    <div class="relative z-0 w-full mb-7 group">
+      <input
+        formControlName="phone"
+        type="text"
+        name="Phone"
+        id="Phone"
+        class="block py-3 px-3 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-400 focus:outline-none focus:ring-0 focus:border-[var(--main-color)] peer"
+        placeholder=" "
+        required
+      />
+      @if(register.get("phone")?.errors && (register.get("phone")?.touched ||
+      register.get("phone")?.dirty )){
+      <i class="fa-solid fa-x text-red-700 absolute end-[3px] top-[20px]"></i>
+      } @if(!register.get("phone")?.errors && (register.get("phone")?.touched ||
+      register.get("phone")?.dirty)){
+      <i
+        class="fa-solid fa-check text-green-700 absolute end-[3px] top-[20px]"
+      ></i>
+      }
+      <label
+        for="Phone"
+        class="mb-2 peer-focus:font-medium peer-focus:text-medium absolute text-medium text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-gary-500 peer-focus:dark:text-gray-400 dark:text-gray-200 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+        >{{ "auth.PHONE" | translate }} :</label
+      >
+      @if(register.get("phone")?.errors && (register.get("phone")?.touched ||
+      register.get("phone")?.dirty)){
+      <div
+        class="flex p-4 my-2 text-sm text-red-800 rounded-lg bg-red-100 dark:bg-gray-800 dark:text-red-400"
+        role="alert"
+      >
+        <svg
+          class="flex-shrink-0 inline w-4 h-4 me-3 mt-[2px]"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+        >
+          <path
+            d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"
+          />
+        </svg>
+        <span class="sr-only">Danger</span>
+        <div>
+          <span class="font-medium"
+            >{{ "ALERT.ENSURE_REQUIREMENTS" | translate }}:</span
+          >
+          <ul class="mt-1.5 list-disc list-inside">
+            @if(register.get("phone")?.getError("required")){
+            <li>{{ "ALERT.REQUIRED" | translate }}</li>
+            } @if(register.get("phone")?.getError("pattern")){
+            <li>{{ "ALERT.EGYPT_PHONE" | translate }}</li>
+            }
+          </ul>
+        </div>
+      </div>
+      }
+    </div>
+
+    <div class="flex flex-col md:flex-row md:items-center justify-between">
+      <p class="dark:text-white">
+        {{ "auth.ALREADY_HAVE_ACCOUNT" | translate }}
+        <a routerLink="/login" class="font-bold dark:text-white">{{
+          "auth.LOGIN_NOW" | translate
+        }}</a>
+      </p>
+      <button
+        [disabled]="isLoading"
+        (click)="reigisterSubmit()"
+        type="submit"
+        class="text-white btn-main btn-main-light dark:btn-main-dark block mt-2 md:mt-0"
+      >
+        {{ "auth.REGISTER" | translate }}
+        @if(isLoading){
+        <span class="fas fa-spin fa-spinner"></span>
+        }
+      </button>
+    </div>
+    @if(this.mesSuccess){
+    <div
+      class="p-4 my-2 text-sm text-green-800 rounded-lg bg-green-200 dark:bg-gray-800 dark:text-green-400"
+      role="alert"
+    >
+      <span class="font-medium"></span>
+      {{ "auth.Register_Done" | translate }}
+    </div>
     }
   </form>
-
 </section>
-
-
-
-
-

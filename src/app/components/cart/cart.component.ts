@@ -46,8 +46,6 @@ export class CartComponent implements OnInit{
     })
   }
 
-
-
   removCratItem(id:string):void{
     this.isLoading = true
     this.removCratItemSub = this._CartService.deleteSpecificCartItem(id).subscribe({
@@ -85,7 +83,7 @@ export class CartComponent implements OnInit{
   clearCart():void{
     this.ClearCountSub = this._CartService.deleteAllCart().subscribe({
       next:(res)=>{
-        console.log(res);
+
         if(res.message == "success"){
           this.cartDetalise = {} as Icart
           this.cartItem = 0
@@ -100,9 +98,16 @@ export class CartComponent implements OnInit{
   }
 
 
-  // ngOnDestroy(): void {
-  //     this.getCatDetaliseSub.unsubscribe()
-  //     // this.removCratItemSub.unsubscribe()
-  //     this.UpdateCountSub.unsubscribe()
-  // }
+  ngOnDestroy(): void {
+      this.getCatDetaliseSub.unsubscribe()
+      if (this.removCratItemSub) {
+        this.removCratItemSub.unsubscribe();
+      }
+      if (this.UpdateCountSub) {
+        this.UpdateCountSub.unsubscribe();
+      }
+      if (this.ClearCountSub) {
+        this.ClearCountSub.unsubscribe();
+      }
+    }
 }

@@ -1,118 +1,299 @@
-<nav class="bg-gray-200 border-gray-200 dark:bg-[black] dark:drop-shadow-[var(--shadow-dark)]">
-  <div class="container mx-auto  flex flex-wrap lg:items-center justify-between p-4 md:flex-col lg:flex-row ">
-    <a routerLink="home" class="flex items-center space-x-3 rtl:space-x-reverse w-[161px] h-[31px]">
+<nav
+  class="bg-gray-200 border-gray-200 dark:bg-[black] dark:drop-shadow-[var(--shadow-dark)]"
+>
+  <div
+    class="container mx-auto flex flex-wrap lg:items-center justify-between p-4 md:flex-col lg:flex-row"
+  >
+    <a
+      routerLink="home"
+      class="flex items-center space-x-3 rtl:space-x-reverse w-[161px] h-[31px]"
+    >
       @if(darkMode == false){
-        <img src="./assets/images/freshcart-logo-light.svg" alt="logo-light">
+      <img src="./assets/images/freshcart-logo-light.svg" alt="logo-light" />
+      } @if(darkMode == true){
+      <img
+        src="./assets/images/freshcart-logo-dark.svg"
+        class="w-full"
+        alt="logo-dark"
+      />
       }
-      @if(darkMode == true){
-        <img src="./assets/images/freshcart-logo-dark.svg" class="w-full" alt="logo-dark">
-      }
-
     </a>
-    <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
-        <span class="sr-only">Open main menu</span>
-        <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
-            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
-        </svg>
+    <button
+      data-collapse-toggle="navbar-default"
+      type="button"
+      class="inline-flex items-center p-2 me-3 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+      aria-controls="navbar-default"
+      aria-expanded="false"
+    >
+      <span class="sr-only">Open main menu</span>
+      <svg
+        class="w-5 h-5"
+        aria-hidden="true"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 17 14"
+      >
+        <path
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M1 1h15M1 7h15M1 13h15"
+        />
+      </svg>
     </button>
-    <div class="hidden bg-gray-200 md:bg-whith mt-3 lg:mt-0 w-full md:block md:w-auto flex flex-col-reverse flex-wrap md:flex lg:flex-row-reverse items-start lg:items-center gap-4 dark:bg-[black] dark:text-white  " id="navbar-default">
-      <ul class="flex items-center  gap-4 text-lg lg:px-4 mb-3 md:mb-0 dark:text-white">
+    <div
+      class="hidden bg-gray-200 md:bg-whith mt-3 lg:mt-0 w-full md:block md:w-auto flex flex-col-reverse flex-wrap md:flex lg:flex-row-reverse items-start lg:items-center gap-4 dark:bg-[black] dark:text-white"
+      id="navbar-default"
+    >
+      <ul
+        class="flex items-center gap-4 text-lg lg:px-4 mb-3 md:mb-0 dark:text-white flex-wrap"
+      >
         <li>
-          <a routerLink="cart" routerLinkActive="active-link"  class="block py-2 px-3  md:p-0 relative " aria-current="page">
+          <a
+            routerLink="cart"
+            class="block py-2 px-3 md:p-0 relative"
+            aria-current="page"
+            id="cartLink"
+          >
             <i class="fa-solid fa-cart-shopping fa-xl"></i>
-            <span class="absolute top-[-20px] right-[40%] ">{{this.countCart}}</span>
+            <span
+              class="absolute top-[-15px] left-[60%] bg-[var(--main-color)] w-[25px] h-[25px] rounded-full text-center hover:text-[black]"
+              >{{ this.countCart }}</span
+            >
           </a>
         </li>
         <li>
-          <i class="fa-brands fa-instagram cursor-pointer ps-3"></i>
+          <i
+            class="fa-brands fa-instagram cursor-pointer ps-3 text-[#E1306C] hover:text-[#E1306C]"
+          ></i>
         </li>
         <li>
-          <i class="fa-brands fa-facebook cursor-pointer"></i>
+          <i
+            class="fa-brands fa-facebook cursor-pointer text-[#1877F2] hover:text-[#1877F2]"
+          ></i>
         </li>
         <li>
-          <i class="fa-brands fa-tiktok cursor-pointer"></i>
+          <i
+            class="fa-brands fa-tiktok cursor-pointer text-black dark:text-[#69C9F8] hover:text-black hover:dark:text-[#69C9F8]"
+          ></i>
         </li>
         <li>
-          <i class="fa-brands fa-youtube cursor-pointer"></i>
+          <i
+            class="fa-brands fa-youtube cursor-pointer text-[#FF0000] hover:text-[#FF0000]"
+          ></i>
         </li>
         <li class="ms-auto md:ms-0 hidden md:block">
-          <button class="flex transition-transform  align-middle me-auto px-4 pt-2 md:p-0" (click)="toggleTheme()">
+          <button
+            class="flex transition-transform align-middle me-auto px-4 pt-2 md:p-0"
+            (click)="toggleTheme()"
+          >
             @if(darkMode){
-              <span  class="text-lg"><i class="fa-solid fa-sun"></i></span>
-            }
-            @if(darkMode == false){
-              <span  class="text-lg"><i class="fa-solid fa-moon"></i></span>
+            <span class="text-lg"
+              ><i
+                class="fa-solid fa-sun text-yellow-300 hover:text-yellow-400"
+              ></i
+            ></span>
+            } @if(darkMode == false){
+            <span class="text-lg"
+              ><i class="fa-solid fa-moon hover:text-black"></i
+            ></span>
             }
           </button>
         </li>
         <li>
-          <div class="flex items-center md:order-2 space-x-1 md:space-x-0 rtl:space-x-reverse">
-            <button type="button" data-dropdown-toggle="language-dropdown-menu" class=" bg-gray-300 inline-flex items-center font-medium justify-center px-4 py-2 text-sm text-gray-900  rounded-lg cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white ">
-              {{"navbar.Lang" | translate}}
-
+          <div
+            class="flex items-center md:order-2 space-x-1 md:space-x-0 rtl:space-x-reverse"
+          >
+            <button
+              type="button"
+              data-dropdown-toggle="language-dropdown-menu"
+              class="bg-gray-300 inline-flex items-center font-medium justify-center px-4 py-2 text-sm text-gray-900 rounded-lg cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white"
+            >
+              {{ "navbar.Lang" | translate }}
             </button>
             <!-- Dropdown -->
-            <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700" id="language-dropdown-menu">
+            <div
+              class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700"
+              id="language-dropdown-menu"
+            >
               <ul class="py-2 font-medium" role="none">
                 <li (click)="changlang('en')">
-                  <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem">
+                  <a
+                    href="#"
+                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white"
+                    role="menuitem"
+                  >
                     <div class="inline-flex items-center">
-                      <svg aria-hidden="true" class="h-3.5 w-3.5 rounded-full me-2" xmlns="http://www.w3.org/2000/svg" id="flag-icon-css-us" viewBox="0 0 512 512"><g fill-rule="evenodd"><g stroke-width="1pt"><path fill="#bd3d44" d="M0 0h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0z" transform="scale(3.9385)"/><path fill="#fff" d="M0 10h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0z" transform="scale(3.9385)"/></g><path fill="#192f5d" d="M0 0h98.8v70H0z" transform="scale(3.9385)"/><path fill="#fff" d="M8.2 3l1 2.8H12L9.7 7.5l.9 2.7-2.4-1.7L6 10.2l.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8H45l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.4 1.7 1 2.7L74 8.5l-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9L92 7.5l1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm-74.1 7l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7H65zm16.4 0l1 2.8H86l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm-74 7l.8 2.8h3l-2.4 1.7.9 2.7-2.4-1.7L6 24.2l.9-2.7-2.4-1.7h3zm16.4 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8H45l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9L92 21.5l1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm-74.1 7l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7H65zm16.4 0l1 2.8H86l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm-74 7l.8 2.8h3l-2.4 1.7.9 2.7-2.4-1.7L6 38.2l.9-2.7-2.4-1.7h3zm16.4 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8H45l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9L92 35.5l1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm-74.1 7l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7H65zm16.4 0l1 2.8H86l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm-74 7l.8 2.8h3l-2.4 1.7.9 2.7-2.4-1.7L6 52.2l.9-2.7-2.4-1.7h3zm16.4 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8H45l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9L92 49.5l1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm-74.1 7l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7H65zm16.4 0l1 2.8H86l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm-74 7l.8 2.8h3l-2.4 1.7.9 2.7-2.4-1.7L6 66.2l.9-2.7-2.4-1.7h3zm16.4 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8H45l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9L92 63.5l1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9z" transform="scale(3.9385)"/></g></svg>
+                      <svg
+                        aria-hidden="true"
+                        class="h-3.5 w-3.5 rounded-full me-2"
+                        xmlns="http://www.w3.org/2000/svg"
+                        id="flag-icon-css-us"
+                        viewBox="0 0 512 512"
+                      >
+                        <g fill-rule="evenodd">
+                          <g stroke-width="1pt">
+                            <path
+                              fill="#bd3d44"
+                              d="M0 0h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0z"
+                              transform="scale(3.9385)"
+                            />
+                            <path
+                              fill="#fff"
+                              d="M0 10h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0z"
+                              transform="scale(3.9385)"
+                            />
+                          </g>
+                          <path
+                            fill="#192f5d"
+                            d="M0 0h98.8v70H0z"
+                            transform="scale(3.9385)"
+                          />
+                          <path
+                            fill="#fff"
+                            d="M8.2 3l1 2.8H12L9.7 7.5l.9 2.7-2.4-1.7L6 10.2l.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8H45l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.4 1.7 1 2.7L74 8.5l-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9L92 7.5l1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm-74.1 7l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7H65zm16.4 0l1 2.8H86l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm-74 7l.8 2.8h3l-2.4 1.7.9 2.7-2.4-1.7L6 24.2l.9-2.7-2.4-1.7h3zm16.4 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8H45l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9L92 21.5l1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm-74.1 7l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7H65zm16.4 0l1 2.8H86l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm-74 7l.8 2.8h3l-2.4 1.7.9 2.7-2.4-1.7L6 38.2l.9-2.7-2.4-1.7h3zm16.4 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8H45l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9L92 35.5l1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm-74.1 7l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7H65zm16.4 0l1 2.8H86l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm-74 7l.8 2.8h3l-2.4 1.7.9 2.7-2.4-1.7L6 52.2l.9-2.7-2.4-1.7h3zm16.4 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8H45l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9L92 49.5l1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm-74.1 7l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7H65zm16.4 0l1 2.8H86l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm-74 7l.8 2.8h3l-2.4 1.7.9 2.7-2.4-1.7L6 66.2l.9-2.7-2.4-1.7h3zm16.4 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8H45l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9L92 63.5l1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9z"
+                            transform="scale(3.9385)"
+                          />
+                        </g>
+                      </svg>
                       English (US)
                     </div>
                   </a>
                 </li>
                 <li (click)="changlang('ar')">
-                  <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem">
+                  <a
+                    href="#"
+                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white"
+                    role="menuitem"
+                  >
                     <div class="inline-flex items-center">
-                      <svg class="w-3.5 h-.3.5 rounded-full me-2" enable-background="new 0 0 512 512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><circle cx="256" cy="256" fill="#f0f0f0" r="256"/><path d="m256 0c-110.071 0-203.906 69.472-240.077 166.957h480.155c-36.172-97.485-130.007-166.957-240.078-166.957z" fill="#d80027"/><path d="m256 512c110.071 0 203.906-69.472 240.077-166.957h-480.154c36.171 97.485 130.006 166.957 240.077 166.957z"/><path d="m345.043 228.174h-66.783c0-12.294-9.967-22.261-22.261-22.261s-22.261 9.967-22.261 22.261h-66.783c0 12.295 10.709 22.261 23.003 22.261h-.742c0 12.295 9.966 22.261 22.261 22.261 0 12.295 9.966 22.261 22.261 22.261h44.522c12.295 0 22.261-9.966 22.261-22.261 12.295 0 22.261-9.966 22.261-22.261h-.741c12.294 0 23.002-9.966 23.002-22.261z" fill="#ff9811"/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/></svg>
+                      <svg
+                        class="w-3.5 h-.3.5 rounded-full me-2"
+                        enable-background="new 0 0 512 512"
+                        viewBox="0 0 512 512"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <circle cx="256" cy="256" fill="#f0f0f0" r="256" />
+                        <path
+                          d="m256 0c-110.071 0-203.906 69.472-240.077 166.957h480.155c-36.172-97.485-130.007-166.957-240.078-166.957z"
+                          fill="#d80027"
+                        />
+                        <path
+                          d="m256 512c110.071 0 203.906-69.472 240.077-166.957h-480.154c36.171 97.485 130.006 166.957 240.077 166.957z"
+                        />
+                        <path
+                          d="m345.043 228.174h-66.783c0-12.294-9.967-22.261-22.261-22.261s-22.261 9.967-22.261 22.261h-66.783c0 12.295 10.709 22.261 23.003 22.261h-.742c0 12.295 9.966 22.261 22.261 22.261 0 12.295 9.966 22.261 22.261 22.261h44.522c12.295 0 22.261-9.966 22.261-22.261 12.295 0 22.261-9.966 22.261-22.261h-.741c12.294 0 23.002-9.966 23.002-22.261z"
+                          fill="#ff9811"
+                        />
+                        <g />
+                        <g />
+                        <g />
+                        <g />
+                        <g />
+                        <g />
+                        <g />
+                        <g />
+                        <g />
+                        <g />
+                        <g />
+                        <g />
+                        <g />
+                        <g />
+                        <g />
+                      </svg>
                       Arabic
                     </div>
                   </a>
                 </li>
-
               </ul>
             </div>
-            <button data-collapse-toggle="navbar-language" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-language" aria-expanded="false">
+            <button
+              data-collapse-toggle="navbar-language"
+              type="button"
+              class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+              aria-controls="navbar-language"
+              aria-expanded="false"
+            >
               <span class="sr-only">Open main menu</span>
-              <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
-                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
-              </svg>
+            </button>
+          </div>
+        </li>
+        <li>
+          <button
+            (click)="this._AuthService.logOut()"
+            class="text-white btn-main btn-main-light dark:btn-main-dark"
+          >
+            {{ "navbar.LogOut" | translate }}
+            <i
+              class="fa-solid fa-arrow-right-from-bracket hover:text-white"
+            ></i>
           </button>
-        </div>
         </li>
-        <li>
-          <button (click)="this._AuthService.logOut()" (click)="changlang('en')" class="text-white btn-main btn-main-light dark:btn-main-dark block  ">{{"navbar.LogOut" | translate}}  <i class="fa-solid fa-arrow-right-from-bracket hover:text-white"></i></button>
-        </li>
-
-
       </ul>
-      <ul class="text-lg flex gap-4 lg:px-4 py-2 mr-auto md:mr-0 md:p-0 relative flex-wrap  dark:text-white">
+      <ul
+        class="text-lg flex gap-4 lg:px-4 py-2 mr-auto md:mr-0 md:p-0 relative flex-wrap dark:text-white"
+      >
         <li>
-          <a routerLink="home" routerLinkActive="active-link"  class="block py-2 px-3 md:p-0 " aria-current="page">{{"navbar.Home" | translate}}</a>
-        </li>
-        <!-- <li>
-          <a routerLink="cart" routerLinkActive="active-link"  class="block py-2 px-3  md:p-0  " aria-current="page">Cart</a>
-        </li> -->
-        <li>
-          <a routerLink="categories" routerLinkActive="active-link"  class="block py-2 px-3  md:p-0  " aria-current="page">{{"navbar.Categoies" | translate}}</a>
-        </li>
-        <li>
-          <a routerLink="products" routerLinkActive="active-link"  class="block py-2 px-3 md:p-0  " aria-current="page">{{"navbar.Products" | translate}}</a>
-        </li>
-        <li>
-          <a routerLink="brands" routerLinkActive="active-link"  class="block py-2 px-3  md:p-0  " aria-current="page">{{"navbar.Brands" | translate}}</a>
+          <a
+            routerLink="home"
+            routerLinkActive="active-link"
+            class="block py-2 px-3 md:p-0"
+            aria-current="page"
+            >{{ "navbar.Home" | translate }}</a
+          >
         </li>
         <li>
-          <a routerLink="wish-list" routerLinkActive="active-link"  class="block py-2 px-3  md:p-0  " aria-current="page">{{"navbar.WishList" | translate}}</a>
+          <a
+            routerLink="categories"
+            routerLinkActive="active-link"
+            class="block py-2 px-3 md:p-0"
+            aria-current="page"
+            >{{ "navbar.Categoies" | translate }}</a
+          >
         </li>
-        <li class="absolute right-[-6px] md:static  md:hidden">
-          <button class="flex transition-transform  align-middle me-auto  pt-2 md:p-0" (click)="toggleTheme()">
+        <li>
+          <a
+            routerLink="products"
+            routerLinkActive="active-link"
+            class="block py-2 px-3 md:p-0"
+            aria-current="page"
+            >{{ "navbar.Products" | translate }}</a
+          >
+        </li>
+        <li>
+          <a
+            routerLink="brands"
+            routerLinkActive="active-link"
+            class="block py-2 px-3 md:p-0"
+            aria-current="page"
+            >{{ "navbar.Brands" | translate }}</a
+          >
+        </li>
+        <li>
+          <a
+            routerLink="wish-list"
+            routerLinkActive="active-link"
+            class="block py-2 px-3 md:p-0"
+            aria-current="page"
+            >{{ "navbar.WishList" | translate }}</a
+          >
+        </li>
+        <li class="absolute right-[-6px] md:static md:hidden">
+          <button
+            class="flex transition-transform align-middle me-auto pt-2 md:p-0"
+            (click)="toggleTheme()"
+          >
             @if(darkMode){
-              <span  class="text-lg"><i class="fa-solid fa-sun"></i></span>
-            }
-            @if(darkMode == false){
-              <span  class="text-lg"><i class="fa-solid fa-moon"></i></span>
+            <span class="text-lg"
+              ><i
+                class="fa-solid fa-sun text-yellow-300 hover:text-yellow-400"
+              ></i
+            ></span>
+            } @if(darkMode == false){
+            <span class="text-lg"
+              ><i class="fa-solid fa-moon hover:text-black"></i
+            ></span>
             }
           </button>
         </li>

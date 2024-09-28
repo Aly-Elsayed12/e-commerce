@@ -1,84 +1,168 @@
-<section class="dark:bg-gray-800  flex items-center py-[135px] px-[20px]">
-  <form [formGroup]="login" (ngSubmit)="loginSubmit()"  class="dark:bg-gray-600  container mx-auto  md:w-[60%] h-100 bg-gray-100 drop-shadow-[var(--shadow)] px-[60px] py-[20px] rounded-[10px]">
-    <h2 class="text-2xl ml-[-35px] mb-9 dark:text-white font-xl">Login Now :</h2>
+<section class="dark:bg-gray-800 flex items-center py-[135px] px-[20px]">
+  <form
+    [formGroup]="login"
+    (ngSubmit)="loginSubmit()"
+    class="dark:bg-gray-600 container mx-auto md:w-[60%] h-100 bg-gray-100 drop-shadow-[var(--shadow)] px-[60px] py-[20px] rounded-[10px]"
+  >
+    <h2 class="text-2xl ml-[-35px] mb-9 dark:text-white font-xl">
+      {{ "auth.LOGIN_NOW" | translate }}:
+    </h2>
 
-    <div class="relative z-0 w-full mb-7 group ">
-        <input formControlName="email"  type="email" name="Email" id="Email" class="block py-3 px-3 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-400  focus:outline-none focus:ring-0 focus:border-[var(--main-color)]   peer " placeholder=" " required />
+    <div class="relative z-0 w-full mb-7 group">
+      <input
+        formControlName="email"
+        type="email"
+        name="Email"
+        id="Email"
+        class="block py-3 px-3 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-400 focus:outline-none focus:ring-0 focus:border-[var(--main-color)] peer"
+        placeholder=" "
+        required
+      />
 
-        <label for="Email" class="peer-focus:font-medium peer-focus:text-medium absolute text-medium text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-gary-500 peer-focus:dark:text-gray-400 dark:text-gray-200 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 "> :</label>
-        @if(login.get("email")?.errors && (login.get("email")?.touched || login.get("email")?.dirty)){
-          <div class="flex p-4 my-2 text-sm text-red-800 rounded-lg bg-red-100 dark:bg-gray-800 dark:text-red-400" role="alert">
-            <svg class="flex-shrink-0 inline w-4 h-4 me-3 mt-[2px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-              <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
-            </svg>
-            <span class="sr-only">Danger</span>
-            <div>
-              <span class="font-medium">Ensure that these requirements are met:</span>
-                <ul class="mt-1.5 list-disc list-inside">
-                  @if(login.get("email")?.getError("required")){
-                    <li>This input is required</li>
-                  }
-                  @if(login.get("email")?.getError("email")){
-                    <li>Enter Valid Email</li>
-                  }
-              </ul>
-            </div>
-          </div>
-        }
-    </div>
-    <div class="relative z-0 w-full mb-7 group ">
-        <input formControlName="password" type="password" name="password" id="password" class="block py-3 px-3 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-400  focus:outline-none focus:ring-0 focus:border-[var(--main-color)]   peer " placeholder=" " required />
-        <label for="password" class="peer-focus:font-medium peer-focus:text-medium absolute text-medium text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-gary-500 peer-focus:dark:text-gray-400 dark:text-gray-200 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 "> :</label>
-        @if(login.get("password")?.errors && (login.get("password")?.touched || login.get("password")?.dirty)){
-          <div class="flex p-4 my-2 text-sm text-red-800 rounded-lg bg-red-100 dark:bg-gray-800 dark:text-red-400" role="alert">
-            <svg class="flex-shrink-0 inline w-4 h-4 me-3 mt-[2px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-              <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
-            </svg>
-            <span class="sr-only">Danger</span>
-            <div>
-              <span class="font-medium">Ensure that these requirements are met:</span>
-                <ul class="mt-1.5 list-disc list-inside">
-                  @if(login.get("password")?.getError("required")){
-                    <li>This input is required</li>
-                  }
-                  @if(login.get("password")?.getError("pattern")){
-                    <li>At least 6 characters</li>
-                  }
-              </ul>
-            </div>
-          </div>
-        }
-    </div>
-
-
-    @if(errMes && !mesSuccess) {
-      <div class="flex items-center p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
-        <svg class="flex-shrink-0 inline w-4 h-4 me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-          <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
+      <label
+        for="Email"
+        class="peer-focus:font-medium peer-focus:text-medium absolute text-medium text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-gary-500 peer-focus:dark:text-gray-400 dark:text-gray-200 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+        >{{ "auth.EMAIL" | translate }} :</label
+      >
+      @if(login.get("email")?.errors && (login.get("email")?.touched ||
+      login.get("email")?.dirty)){
+      <div
+        class="flex p-4 my-2 text-sm text-red-800 rounded-lg bg-red-100 dark:bg-gray-800 dark:text-red-400"
+        role="alert"
+      >
+        <svg
+          class="flex-shrink-0 inline w-4 h-4 me-3 mt-[2px]"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+        >
+          <path
+            d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"
+          />
         </svg>
-        <span class="sr-only">Info</span>
+        <span class="sr-only">Danger</span>
         <div>
-          <span class="font-medium">{{errMes}}</span>
+          <span class="font-medium"
+            >{{ "ALERT.ENSURE_REQUIREMENTS" | translate }}:</span
+          >
+          <ul class="mt-1.5 list-disc list-inside">
+            @if(login.get("email")?.getError("required")){
+            <li>{{ "ALERT.REQUIRED" | translate }}</li>
+            } @if(login.get("email")?.getError("email")){
+            <li>{{ "ALERT.VALID_EMAIL" | translate }}</li>
+            }
+          </ul>
         </div>
       </div>
+      }
+    </div>
+    <div class="relative z-0 w-full mb-7 group">
+      <input
+        formControlName="password"
+        type="password"
+        name="password"
+        id="password"
+        class="block py-3 px-3 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-400 focus:outline-none focus:ring-0 focus:border-[var(--main-color)] peer"
+        placeholder=" "
+        required
+      />
+      <label
+        for="password"
+        class="peer-focus:font-medium peer-focus:text-medium absolute text-medium text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-gary-500 peer-focus:dark:text-gray-400 dark:text-gray-200 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+      >
+        {{ "auth.PASSWORD" | translate }}:</label
+      >
+      @if(login.get("password")?.errors && (login.get("password")?.touched ||
+      login.get("password")?.dirty)){
+      <div
+        class="flex p-4 my-2 text-sm text-red-800 rounded-lg bg-red-100 dark:bg-gray-800 dark:text-red-400"
+        role="alert"
+      >
+        <svg
+          class="flex-shrink-0 inline w-4 h-4 me-3 mt-[2px]"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+        >
+          <path
+            d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"
+          />
+        </svg>
+        <span class="sr-only">Danger</span>
+        <div>
+          <span class="font-medium"
+            >Ensure that these requirements are met:</span
+          >
+          <ul class="mt-1.5 list-disc list-inside">
+            @if(login.get("password")?.getError("required")){
+            <li>{{ "ALERT.REQUIRED" | translate }}</li>
+            } @if(login.get("password")?.getError("pattern")){
+            <li>{{ "ALERT.MIN_LENGTH_6" | translate }}</li>
+            }
+          </ul>
+        </div>
+      </div>
+      }
+    </div>
+
+    @if(errMes && !mesSuccess) {
+    <div
+      class="flex items-center p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+      role="alert"
+    >
+      <svg
+        class="flex-shrink-0 inline w-4 h-4 me-3"
+        aria-hidden="true"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="currentColor"
+        viewBox="0 0 20 20"
+      >
+        <path
+          d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"
+        />
+      </svg>
+      <span class="sr-only">Info</span>
+      <div>
+        <span class="font-medium">{{ errMes }}</span>
+      </div>
+    </div>
     }
 
-      <div class="flex flex-col md:flex-row md:items-center justify-between">
-        <p class="dark:text-white">Don't have an account? <a routerLink="/register" class="font-bold dark:text-white">Register Now</a></p>
-        <button [disabled]="isLoading" (click)="loginSubmit()" type="submit" class="text-white btn-main btn-main-light dark:btn-main-dark block  ">
-
-          Login
-            @if(isLoading){
-              <span class="fas fa-spin fa-spinner"></span>
-            }
-        </button>
-      </div>
-      <p routerLink="/forget" class="underline decoration-solid cursor-pointer text-red-500 mt-2">Forget Password</p>
+    <div class="flex flex-col md:flex-row md:items-center justify-between">
+      <p class="dark:text-white">
+        {{ "auth.DONT_HAVE_ACCOUNT" | translate }}
+        <a routerLink="/register" class="font-bold dark:text-white">{{
+          "auth.REGISTER_NOW" | translate
+        }}</a>
+      </p>
+      <button
+        [disabled]="isLoading"
+        (click)="loginSubmit()"
+        type="submit"
+        class="text-white btn-main btn-main-light dark:btn-main-dark block"
+      >
+        {{ "auth.LOGIN" | translate }}
+        @if(isLoading){
+        <span class="fas fa-spin fa-spinner"></span>
+        }
+      </button>
+    </div>
+    <p
+      routerLink="/forget"
+      class="underline decoration-solid cursor-pointer text-red-500 mt-2"
+    >
+      {{ "auth.FORGET_PASSWORD" | translate }}
+    </p>
     @if(this.mesSuccess){
-      <div class="p-4 my-2 text-sm text-green-800 rounded-lg bg-green-200 dark:bg-gray-800 dark:text-green-400" role="alert">
-        <span class="font-medium">Success alert!</span>You have successfully logged in. You will be transferred to the home page within a few seconds.
-      </div>
+    <div
+      class="p-4 my-2 text-sm text-green-800 rounded-lg bg-green-200 dark:bg-gray-800 dark:text-green-400"
+      role="alert"
+    >
+      <span class="font-medium"></span>
+      {{ "auth.Login_Done" | translate }}
+    </div>
     }
   </form>
-
 </section>

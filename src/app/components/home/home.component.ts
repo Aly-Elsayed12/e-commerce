@@ -43,6 +43,7 @@ export class HomeComponent implements OnInit , OnDestroy {
   getAllProductsSub!:Subscription
   getAllCategoriesSub!:Subscription
   addProductsToCartSub!:Subscription
+  addProdutsToWishSub!:Subscription
 
 
   customOptionsMain: OwlOptions = {
@@ -96,6 +97,7 @@ export class HomeComponent implements OnInit , OnDestroy {
   }
 
 
+
   ngOnInit(): void {
     this._flowbiteService.loadFlowbite(flowbite => {
     });
@@ -146,18 +148,27 @@ addToCart(id:string):void{
 
 
 addProdutsToWish(id:string):void{
-  this._WishService.addProductsToWish(id).subscribe({
+  this.addProdutsToWishSub = this._WishService.addProductsToWish(id).subscribe({
     next:(res)=>{
       this._ToastrService.success(res.message , "frachCash")
-
     }
   })
+
+
+
+
 }
 
 ngOnDestroy(): void {
   this.getAllProductsSub?.unsubscribe()
   this.getAllCategoriesSub?.unsubscribe()
-  // this.addProductsToCartSub?.unsubscribe()
+  if(this.addProductsToCartSub){
+    this.addProductsToCartSub?.unsubscribe()
+  }
+  if(this.addProdutsToWishSub){
+    this.addProdutsToWishSub?.unsubscribe()
+  }
+
 }
 
 }

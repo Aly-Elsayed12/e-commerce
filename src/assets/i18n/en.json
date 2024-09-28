@@ -14,7 +14,8 @@
   "home" : {
       "SHOP_POPULAR_CATEGORIES": "Shop Popular Categories",
       "POPULAR_PRODUCTS": "Popular Products",
-      "SEE_ALL_PRODUCTS": "To See All Products, Click Here"
+      "SEE_ALL_PRODUCTS": "To See All Products, Click Here",
+          "HERE": "here"
   },
   "footer": {
     "GET_APP": "Get The FreshCart App",
@@ -57,7 +58,7 @@
     "ADD_TO_CART": "Add To Cart"
   },
   "app":{
-    "Loading": "Loading"
+    "Loading": "Loading..."
   },
   "auth": {
     "LOGIN": "Login",
@@ -75,7 +76,36 @@
     "VERIFY_EMAIL": "Verify Email",
     "VERIFY_CODE": "Verify Code",
     "CODE": "Code",
-    "RESET_PASSWORD": "Reset Password"
+    "RESET_PASSWORD": "Reset Password",
+    "Login_Done" :"You have successfully logged in. You will be transferred to the home page within a few seconds.",
+    "Register_Done" : " Your registration has been completed and you will be transferred to the login page within a few seconds.",
+    "new_password" : "new password"
+  },
+  "ALERT": {
+    "REQUIRED": "This input is required",
+    "VALID_EMAIL": "Enter Valid Email",
+    "SUCCESS": "Success",
+    "CODE_SENT": "The confirmation code has been sent to your email",
+    "CHECK_EMAIL": "Please check your email",
+    "VALID_CODE": "Enter Valid Code",
+    "CHANGE_PASSWORD": "Now you can change the password",
+    "VALID_PASSWORD": "Enter Valid password",
+    "PASSWORD_CHANGED": "The password has been changed",
+    "TRANSFER_TO_HOME": "You will be transferred to the home page",
+    "ENSURE_REQUIREMENTS": "Ensure that these requirements are met",
+    "MIN_LENGTH_6": "At least 6 characters",
+    "MIN_LENGTH_3_TO_20": "At least 3 characters (and up to 20 characters)",
+    "PASSWORD_CONFIRMATION_INCORRECT": "Password confirmation is incorrect",
+    "EGYPT_PHONE": "Accept only Egypt phone numbers"
+  },
+  "allOrder":{
+      "ALL_ORDERS": "All Orders",
+      "ORDER_NUMBER": "Order Number",
+      "PAYMENT_TYPE": "Payment Type",
+      "Total_price": "Total Price"
+  },
+  "notfound":{
+    "PAGE_NOT_FOUND": "Page Not Found"
   }
 
 
