@@ -4,7 +4,7 @@
 import { Component, inject, Inject, PLATFORM_ID } from '@angular/core';
 import { FlowbiteService } from '../../core/services/flowbite/flowbite.service';
 import { RouterLink, RouterLinkActive } from '@angular/router';
-import { isPlatformBrowser } from '@angular/common';
+import { isPlatformBrowser, NgClass } from '@angular/common';
 import { AuthService } from '../../core/services/auth/auth.service';
 import { CartService } from '../../core/services/cart/cart.service';
 import { TranslateModule } from '@ngx-translate/core';
@@ -15,7 +15,7 @@ import { MyTransalteService } from '../../core/services/mytransalte/my-transalte
 @Component({
   selector: 'app-nav-blank',
   standalone: true,
-  imports: [RouterLink, RouterLinkActive ,TranslateModule],
+  imports: [RouterLink, RouterLinkActive ,TranslateModule , NgClass],
   templateUrl: './nav-blank.component.html',
   styleUrls: ['./nav-blank.component.scss']
 })
@@ -73,6 +73,12 @@ export class NavBlankComponent {
 
 changlang(lang:string):void{
   this._MyTransalteService.changeLang(lang)
+}
+isOpen:boolean = true
+
+
+open():void{
+  this.isOpen = !this.isOpen
 }
 
 }

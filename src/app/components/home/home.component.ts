@@ -127,21 +127,18 @@ export class HomeComponent implements OnInit , OnDestroy {
 }
 
 addToCart(id:string):void{
-  this.isLoading = true
+
   this.ClickedId = id
   this.addProductsToCartSub = this._CartService.addProductsToCart(id).subscribe({
     next:(res)=>{
-
-      this._ToastrService.success(res.message, "freshCart")
-      this.isLoading = false
+      this._ToastrService.success(res.message, "freshCart" ,
+        { titleClass: "center",
+      messageClass: "center"})
       this._CartService.cartnumber.next(res.numOfCartItems)
-
-
     },
     error:(err)=>{
-      this.isLoading = false
       console.log(err);
-
+      this._ToastrService.success(err.message, "freshCart")
     }
   })
 }

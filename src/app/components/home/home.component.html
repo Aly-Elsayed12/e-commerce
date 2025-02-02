@@ -96,7 +96,7 @@
   >
     @for(product of productsList.slice(0, 18); track product.id ){
     <div class="product rounded-lg shadow-lg dark:bg-gray-600 relative">
-      <div>
+      <div class="cursor-pointer">
         <i
           (click)="addProdutsToWish(product.id)"
           class="cursor-pointer z-10 fa-solid fa-heart-circle-plus absolute top-[10px] end-[10px] text-3xl text-red-600 hover:text-red-700"

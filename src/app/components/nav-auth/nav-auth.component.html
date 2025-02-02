@@ -88,21 +88,24 @@
         </li>
         <li>
           <div
-            class="flex items-center md:order-2 space-x-1 md:space-x-0 rtl:space-x-reverse"
+            class="flex items-center md:order-2 space-x-1 md:space-x-0 rtl:space-x-reverse relative"
           >
             <button
               type="button"
-              data-dropdown-toggle="language-dropdown-menu"
+              (click)="open()"
               class="bg-gray-300 inline-flex items-center font-medium justify-center px-4 py-2 text-sm text-gray-900 rounded-lg cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white"
             >
               {{ "navbar.Lang" | translate }}
             </button>
             <!-- Dropdown -->
             <div
-              class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700"
-              id="language-dropdown-menu"
+              class="z-50 hidden my-4 text-base list-none bottom-0 bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 absolute lang-drop"
+              [ngClass]="{ hidden: isOpen }"
             >
-              <ul class="py-2 font-medium" role="none">
+              <ul
+                class="py-2 font-medium bg-white dark:bg-slate-500"
+                role="none"
+              >
                 <li (click)="changlang('en')">
                   <a
                     href="#"

@@ -1,7 +1,7 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { FlowbiteService } from '../../core/services/flowbite/flowbite.service';
-import { NgIf, isPlatformBrowser } from '@angular/common';
+import { NgClass, NgIf, isPlatformBrowser } from '@angular/common';
 import { Inject, PLATFORM_ID } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 import { MyTransalteService } from '../../core/services/mytransalte/my-transalte.service';
@@ -10,7 +10,7 @@ import { MyTransalteService } from '../../core/services/mytransalte/my-transalte
 @Component({
   selector: 'app-nav-auth',
   standalone: true,
-  imports: [RouterLink, RouterLinkActive, NgIf , TranslateModule, ],
+  imports: [RouterLink, RouterLinkActive, NgIf , TranslateModule, NgClass ],
   templateUrl: './nav-auth.component.html',
   styleUrls: ['./nav-auth.component.scss']
 })
@@ -55,6 +55,15 @@ export class NavAuthComponent implements OnInit {
 
   changlang(lang:string):void{
     this._MyTransalteService.changeLang(lang)
+  }
+
+  isOpen:boolean = true
+
+
+  open():void{
+    this.isOpen = !this.isOpen
+
+
   }
 
 }

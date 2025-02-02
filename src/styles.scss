@@ -118,6 +118,33 @@ a:hover:not(#cartLink){
   flex-direction: row-reverse;
   justify-content: center;
 }
+
+
+.lang-drop{
+  width: 150px;
+  top: 21px;
+}
+
+::-webkit-scrollbar {
+  width: 13px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: #E5E7EB;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--main-color);
+  border-radius: 10px;
+  border: 2px solid #E5E7EB;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--main-color);
+}
+
 // html[dir="ltr"] .owl-nav.ng-star-inserted {
 //   display: flex;
 //   flex-direction: row-reverse;

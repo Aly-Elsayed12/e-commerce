@@ -32,7 +32,7 @@ export class ForgetPasswordComponent {
     resetCode: [null , [Validators.required , Validators.pattern(/^[0-9]{6}$/)]]
 })
   restPassword: FormGroup = this._FormBuilder.group({
-    email:[null , [Validators.required, Validators.email]],
+    password:[null , [Validators.required, Validators.pattern(/^.{5,}$/)]],
     newPassword:[null , [Validators.required,  Validators.pattern(/^.{5,}$/)]],
 })
 
@@ -94,10 +94,8 @@ sumbitNewPass():void{
         this.isLoading = false
         this.mesSuccess = true
         setTimeout(()=>{
-
           localStorage.setItem("token", res.token)
           this._AuthService.saveUserData()
-
           this._Router.navigate(["/home", ])
         }, 3000 )
       },
